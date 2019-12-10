@@ -50,9 +50,6 @@ const adaptInput = ({
     return input
 }
 
-const skeletonClass = (loading) => {
-    return loading ? { className: 'bp3-skeleton' } : {}
-}
 
 const styles: { [key: string]: React.CSSProperties } = {
     table: {

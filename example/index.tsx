@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useField } from 'react-final-form'
 import { render } from 'react-dom'
+import { ArrowRight } from 'styled-icons/feather'
 // import antdComponents from '../components/antd'
 import {
     TextField,
@@ -35,13 +36,27 @@ const App = () => (
                             />
                             <CardOptions
                                 label='choose a cards'
-                                items={[{ value: 'a1' }, { value: 'a2' }]}
+                                items={[
+                                    {
+                                        icon: <ArrowRight width='40px' />,
+                                        value: 'a real word'
+                                    },
+                                    { value: 'something' }
+                                ]}
                                 name='cards'
                             />
                             <SliderField name='slider' />
                             <Switch label='caio' name='dfòkgjdklfg' />
                             <TagsField label='ciaone' name='xcdf' />
-                            <Button title='bottone' />
+                            <Button
+                                icon={
+                                    <ArrowRight
+                                        strokeWidth='1px'
+                                        width='40px'
+                                    />
+                                }
+                                title='bottone'
+                            />
                             <NumberInput label='caio' name='dsfdsfdsf99' />
                             {/* <TagsField /> */}
                             <pre>{JSON.stringify(values, null, 4)}</pre>

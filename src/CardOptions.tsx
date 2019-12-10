@@ -15,20 +15,20 @@ const Card: FC<BoxProps & {
 }> = styled(Box)`
     border-radius: 4px;
     border-color: ${(p: any) => (p.selected ? p.primary : p.secondary)};
-    border-width: 1px;
+    border-width: 2px;
     border-style: solid;
     min-width: ${(p) => p.size};
     min-height: ${(p) => p.size};
     background-color: white;
     color: ${(p: any) => (p.selected ? p['primary'] : p['secondary'])};
-    font-weight: 700;
-    font-size: 1.5rem;
+    font-weight: normal;
+    font-size: 18px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
 `
 
 export const FormCard = ({
@@ -55,7 +55,7 @@ export const FormCard = ({
                 size={size}
             >
                 {title}
-                <Box>{icon}</Box>
+                {icon}
             </Card>
         </bp.Card>
     )

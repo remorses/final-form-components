@@ -105,7 +105,7 @@ export const ButtonWithIcon: FC<BoxProps & { icon?: any; title: any }> = ({
             <Button height='40px' justifyContent='center' {...rest}>
                 <Row alignItems='center' justifyContent='center'>
                     {icon}
-                    <Box mr='10px' />
+
                     <Text fontSize='18px' color='white'>
                         {title}
                     </Text>

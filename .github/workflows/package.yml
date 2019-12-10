@@ -31,7 +31,7 @@ jobs:
       #     set -x
       #     docker build . -t xmorse/example:latest
       #     docker push xmorse/example:latest
-      - run: npm version --no-git-tag-version patch
+    #   - run: npm version --no-git-tag-version patch
       - name: Bump version
         uses: remorses/bump-version@js
         with:
