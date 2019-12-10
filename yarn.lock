@@ -581,10 +581,10 @@ hoist-non-react-statics@^3.3.0:
   dependencies:
     react-is "^16.7.0"
 
-hybrid-components@3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/hybrid-components/-/hybrid-components-3.0.1.tgz#09db6c129e449f6fc6573fdf49592fa8fd31d0a0"
-  integrity sha512-litLoFUqfZXF/IsXKKu7QpHvXnrYWdqIq6grbnBT0OXFqJ061yx8k0uAEBjU/Z07SE1dC/0i77Np0rWR/SwD8A==
+hybrid-components@3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/hybrid-components/-/hybrid-components-3.0.4.tgz#83429d2a0b36bdc83f061b3c21f5c6fc583164da"
+  integrity sha512-5JL/5e3qsDPDFvqRfs7qyUKny//VToE2/lAgU7qjoJt+yjYZU8ZpAgSI4qUgy9bkTxk45bL7BNIgh8c8RxzVrw==
   dependencies:
     "@styled-system/css" "^5.0.23"
     "@styled-system/should-forward-prop" "^5.1.0"

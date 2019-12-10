@@ -204,7 +204,7 @@ export const AddableListField: FC<{
 
     return (
         <Box my='20px' {...rest}>
-            <bp.Card>
+            <bp.Card elevation={2}>
                 <bp.H4>{title}</bp.H4>
                 <Box style={styles.table}>
                     {!things.length && (

@@ -10,15 +10,15 @@ const Card: FC<BoxProps & {
     selected?: boolean
     isDisabled?: boolean
     primary?: string
-    size?: string
+    siz?: string
     secondary?: string
 }> = styled(Box)`
     border-radius: 4px;
     border-color: ${(p: any) => (p.selected ? p.primary : p.secondary)};
     border-width: 2px;
     border-style: solid;
-    min-width: ${(p) => p.size};
-    min-height: ${(p) => p.size};
+    min-width: ${(p: any) => p.siz};
+    min-height: ${(p: any) => p.siz};
     background-color: white;
     color: ${(p: any) => (p.selected ? p['primary'] : p['secondary'])};
     font-weight: normal;
@@ -35,7 +35,7 @@ export const FormCard = ({
     selected = false,
     icon = '',
     title,
-    size,
+    siz,
     onClick,
     isInvalid = false,
     isDisabled = false,
@@ -52,7 +52,7 @@ export const FormCard = ({
                 {...rest}
                 selected={selected}
                 isDisabled={isDisabled}
-                size={size}
+                siz={siz}
             >
                 {title}
                 {icon}
@@ -74,7 +74,7 @@ const Cards = ({
     defaultValue = null,
     items = [] as CardOptionItem[],
     primary,
-    size = '100px',
+    siz = '100px',
     secondary,
     loading,
     isInvalid
@@ -98,7 +98,6 @@ const Cards = ({
                     // bgOnHover={selected ? colors.white : colors.primary}
                 >
                     <FormCard
-                        
                         primary={primary}
                         secondary={secondary}
                         title={label || itemValue}
@@ -107,7 +106,7 @@ const Cards = ({
                         selected={value === itemValue}
                         isInvalid={isInvalid}
                         isDisabled={isDisabled}
-                        size={size}
+                        siz={siz}
                     />
                 </Box>
             ))}
@@ -122,6 +121,7 @@ export default ({
     primary = '#5C7080',
     secondary = '#ddd',
     defaultValue = null,
+    size = '100px',
     loading = false
 }) => {
     const {
@@ -140,6 +140,7 @@ export default ({
                 secondary={secondary}
                 defaultValue={defaultValue}
                 loading={loading}
+                siz={size}
                 {...input}
             />
         </FormGroup>

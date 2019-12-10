@@ -35,6 +35,6 @@
   },
   "dependencies": {
     "@types/react": "^16.9.16",
-    "hybrid-components": "3.0.1"
+    "hybrid-components": "3.0.4"
   }
 }
