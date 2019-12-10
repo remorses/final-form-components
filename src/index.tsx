@@ -11,6 +11,9 @@ import { BoxProps } from 'hybrid-components/src/types'
 // import 'filepond/dist/filepond.min.css'
 export { default as FilesField } from './FilesField'
 export { default as Button } from './Button'
+export { default as CardOptions } from './CardOptions'
+
+
 const Text: FC<BoxProps> = (p) => <Box width='auto' {...p} />
 
 interface BaseProps {

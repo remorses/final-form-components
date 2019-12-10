@@ -2,10 +2,19 @@ import React, { useState } from 'react'
 import { useField } from 'react-final-form'
 import { render } from 'react-dom'
 // import antdComponents from '../components/antd'
-import { TextField, Select, Switch, NumberInput, TagsField, Button } from '../src/'
+import {
+    TextField,
+    Select,
+    Switch,
+    NumberInput,
+    TagsField,
+    Button,
+    SliderField,
+    CardOptions
+} from '../src/'
 import './reset.css'
 import { Form } from 'react-final-form'
-import { Card, } from '@blueprintjs/core'
+import { Card } from '@blueprintjs/core'
 import { Box } from 'hybrid-components'
 
 const opts = [{ value: 'a1' }, { value: 'a2' }, { value: 'a3' }]
@@ -24,8 +33,14 @@ const App = () => (
                                 name='sdfciao'
                                 options={opts}
                             />
+                            <CardOptions
+                                label='choose a cards'
+                                items={[{ value: 'a1' }, { value: 'a2' }]}
+                                name='cards'
+                            />
+                            <SliderField name='slider' />
                             <Switch label='caio' name='dfòkgjdklfg' />
-                            <TagsField label='ciaone' name='xcdf'/>
+                            <TagsField label='ciaone' name='xcdf' />
                             <Button title='bottone' />
                             <NumberInput label='caio' name='dsfdsfdsf99' />
                             {/* <TagsField /> */}

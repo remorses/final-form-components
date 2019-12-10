@@ -4,20 +4,22 @@ import Color from 'color'
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
 import { BoxProps } from 'hybrid-components/src/types'
 
+const DEFAULT_COLOR = '#1C2030'
+
 const getColor = (p) => {
-    const c = p.theme.color || 'black'
+    const c = p.theme.color || DEFAULT_COLOR
     if (p.invert) {
         return c
     }
     const isLight = Color(c).isLight()
-    return isLight ? '#000' : '#fff'
+    return isLight ? DEFAULT_COLOR : '#fff'
 }
 
 const getBg = (p) => {
-    const c = p.theme.color || 'black'
+    const c = p.theme.color || DEFAULT_COLOR
     if (p.invert) {
         const isLight = Color(c).isLight()
-        return isLight ? '#000' : '#fff'
+        return isLight ? DEFAULT_COLOR : '#fff'
     }
     return c
 }
@@ -92,8 +94,6 @@ const Button: FC<Omit<ButtonHTMLAttributes<any>, 'color'> & {
         </ButtonContainer>
     )
 }
-
-
 
 export const ButtonWithIcon: FC<BoxProps & { icon?: any; title: any }> = ({
     icon,
