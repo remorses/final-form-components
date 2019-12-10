@@ -11,7 +11,8 @@ import {
     TagsField,
     Button,
     SliderField,
-    CardOptions
+    CardOptions,
+    AddableListField
 } from '../src/'
 import './reset.css'
 import { Form } from 'react-final-form'
@@ -48,6 +49,8 @@ const App = () => (
                             <SliderField name='slider' />
                             <Switch label='caio' name='dfòkgjdklfg' />
                             <TagsField label='ciaone' name='xcdf' />
+                            <NumberInput label='caio' name='dsfdsfdsf99' />
+                            <AddableListField name='addable'  />
                             <Button
                                 icon={
                                     <ArrowRight
@@ -57,7 +60,6 @@ const App = () => (
                                 }
                                 title='bottone'
                             />
-                            <NumberInput label='caio' name='dsfdsfdsf99' />
                             {/* <TagsField /> */}
                             <pre>{JSON.stringify(values, null, 4)}</pre>
                         </>

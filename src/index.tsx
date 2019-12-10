@@ -13,7 +13,6 @@ export { default as FilesField } from './FilesField'
 export { default as Button } from './Button'
 export { default as CardOptions } from './CardOptions'
 
-
 const Text: FC<BoxProps> = (p) => <Box width='auto' {...p} />
 
 interface BaseProps {
@@ -49,7 +48,6 @@ const adaptInput = ({
     }
     return input
 }
-
 
 const styles: { [key: string]: React.CSSProperties } = {
     table: {
@@ -177,12 +175,11 @@ export const SliderField = ({
     )
 }
 
-export const AddableListField = ({
-    name,
-    title = 'Things',
-    icon = 'th-list',
-    ...rest
-}) => {
+export const AddableListField: FC<{
+    name
+    title?: string
+    icon?: string
+} & BoxProps> = ({ name, title = 'Things', icon = 'th-list', ...rest }) => {
     const { input, meta } = useField(name)
     const [things, setThings] = useState<string[]>([])
     const [newThing, setNewThing] = useState('')
@@ -206,7 +203,7 @@ export const AddableListField = ({
     }
 
     return (
-        <Box {...rest}>
+        <Box my='20px' {...rest}>
             <bp.Card>
                 <bp.H4>{title}</bp.H4>
                 <Box style={styles.table}>
