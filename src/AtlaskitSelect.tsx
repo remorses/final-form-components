@@ -57,7 +57,7 @@ export interface SelectItem {
 export default ({ name, label = '', items = [] as SelectItem[] }) => {
     const { input, meta } = useField(name)
     return (
-        <FormGroup label={label}>
+        <FormGroup label={label} >
             <SelectElement items={items} {...input} />
         </FormGroup>
     )

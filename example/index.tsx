@@ -21,7 +21,7 @@ import AtlaskitSelect from '../src/AtlaskitSelect'
 import './reset.css'
 import { Form } from 'react-final-form'
 import { Card } from '@blueprintjs/core'
-import { Box } from 'hybrid-components'
+import { Box, Row } from 'hybrid-components'
 
 const opts = [{ value: 'a1' }, { value: 'a2' }, { value: 'a3' }]
 
@@ -132,6 +132,14 @@ const Components = ({ values, handleSubmit }) => {
             <Box my='20px'>
                 The docker stack will be deployed in the instance selectes
             </Box>
+            <Row my='20px' fontSize='24px' justifyContent='center'>
+                <Box mx='10px' width='auto'>
+                    Monthly Cost:
+                </Box>
+                <Box width='auto' fontWeight='bold'>
+                    Free
+                </Box>
+            </Row>
             <Button
                 type='submit'
                 onClick={handleSubmit}
