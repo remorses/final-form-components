@@ -50,7 +50,7 @@ const ButtonContainer = styled(Box)<Props>`
     padding: 10px 20px;
     height: fit-content;
     font-weight: normal;
-    font-size: 18px;
+    font-size: inherit;
     border-radius: 6px;
     border-width: 0px;
     /* margin: 20px; */
@@ -95,20 +95,16 @@ const Button: FC<Omit<ButtonHTMLAttributes<any>, 'color'> & {
     )
 }
 
-export const ButtonWithIcon: FC<BoxProps & { icon?: any; title: any } & ButtonHTMLAttributes<any>> = ({
-    icon,
-    title,
-    ...rest
-}) => {
+export const ButtonWithIcon: FC<BoxProps & {
+    icon?: any
+    title: any
+} & ButtonHTMLAttributes<any>> = ({ icon, title, type, onClick, ...rest }) => {
     return (
-        <Box width='auto' justifyContent='center' alignItems='center'>
-            <Button height='40px' justifyContent='center' {...rest}>
+        <Box width='auto' justifyContent='center' alignItems='center' {...rest}>
+            <Button height='40px' justifyContent='center' type={type} onClick={onClick}>
                 <Row alignItems='center' justifyContent='center'>
+                    <Box color='white' mr='10px'>{title}</Box>
                     {icon}
-
-                    <Text fontSize='18px' color='white'>
-                        {title}
-                    </Text>
                 </Row>
             </Button>
         </Box>

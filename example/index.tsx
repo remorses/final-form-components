@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useField } from 'react-final-form'
 import * as bp from '@blueprintjs/core'
 import { render } from 'react-dom'
-import { ArrowRight, Cpu } from 'styled-icons/feather'
+import { ArrowRight, Cpu, UploadCloud } from 'styled-icons/feather'
 // import antdComponents from '../components/antd'
 // import { Aws } from 'styled-icons/fa-brands/Aws'
 import {
@@ -144,21 +144,22 @@ const Components = ({ values, handleSubmit }) => {
             <Button
                 type='submit'
                 onClick={handleSubmit}
-                icon={<ArrowRight strokeWidth='1px' width='40px' />}
-                title='bottone'
+                fontSize='24px'
+                icon={<UploadCloud strokeWidth='2px' width='30px' />}
+                title='Deploy'
             />
 
             {/* <TagsField /> */}
-            <pre>{JSON.stringify(values, null, 4)}</pre>
+            {/* <pre>{JSON.stringify(values, null, 4)}</pre> */}
         </Box>
     )
 }
 
 const App = () => {
     return (
-        <Box alignItems='center' py='60px'>
-            <Box maxWidth='800px'>
-                <Card elevation={4}>
+        <Box alignItems='center' py='60px' bg='#eee'>
+            <Box maxWidth='800px' borderRadius='10px' overflow='hidden'>
+                <Card elevation={2}>
                     <Form
                         onSubmit={(x) => alert(JSON.stringify(x, null, 4))}
                         render={(data) => {
