@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useField } from 'react-final-form'
 import { render } from 'react-dom'
-import { ArrowRight } from 'styled-icons/feather'
+import { ArrowRight, Cpu } from 'styled-icons/feather'
 // import antdComponents from '../components/antd'
 // import { Aws } from 'styled-icons/fa-brands/Aws'
 import {
@@ -50,7 +50,6 @@ const GoogleCloud = ({ width = 120, height = 60 }) => {
     )
 }
 
-
 const Azure = ({ width = 120, height = 60 }) => {
     return (
         <svg
@@ -58,7 +57,8 @@ const Azure = ({ width = 120, height = 60 }) => {
             x='0px'
             y='0px'
             viewBox='0 0 32 32'
-            width={width} height={height}
+            width={width}
+            height={height}
             enable-background='new 0 0 32 32'
         >
             <title>Azure</title>
@@ -74,6 +74,7 @@ const Components = ({ values }) => {
             <TextField label='caio' name='ciao' />
             <Select label='caio' name='sdfciao' options={opts} />
             <CardOptions
+                fitContent={false}
                 primary='#834FAB'
                 secondary='#F6F0FB'
                 label='choose a cards'
@@ -87,6 +88,22 @@ const Components = ({ values }) => {
                     { value: 'azure', icon: <Azure />, label: '' }
                 ]}
                 name='cards'
+            />
+            <CardOptions
+                primary='#834FAB'
+                secondary='#F6F0FB'
+                fitContent={true}
+                label='choose an instance type'
+                items={[
+                    { value: 'M0', icon: <Cpu width='30px' /> },
+                    { value: 'M1', icon: <Cpu width='30px' /> },
+                    { value: 'M2', icon: <Cpu width='30px' /> },
+                    { value: 'M3', icon: <Cpu width='30px' /> },
+                    { value: 'M4', icon: <Cpu width='30px' /> },
+                    
+                    
+                ]}
+                name='instances'
             />
             <SliderField name='slider' />
             <Switch label='caio' name='dfòkgjdklfg' />

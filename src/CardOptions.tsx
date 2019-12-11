@@ -15,11 +15,11 @@ const Card: FC<BoxProps & {
 }> = styled(Box)`
     border-radius: 6px;
     &:hover {
-        border-color: ${(p: any) => p.selected ? p.primary : p.secondary};
+        border-color: ${(p: any) => (p.selected ? p.primary : p.secondary)};
     }
     border-width: 2px;
     border-style: solid;
-    border-color: ${(p: any) => p.selected ? p.primary : 'transparent'};
+    border-color: ${(p: any) => (p.selected ? p.primary : 'transparent')};
     min-width: ${(p: any) => p.siz};
     min-height: ${(p: any) => p.siz};
     background-color: white;
@@ -46,7 +46,7 @@ export const FormCard = ({
 }) => {
     const nothing = () => null
     return (
-        <div  onClick={!isDisabled ? onClick : nothing} style={{ padding: 0 }}>
+        <div onClick={!isDisabled ? onClick : nothing} style={{ padding: 0 }}>
             <Card
                 {...rest}
                 selected={selected}
@@ -76,6 +76,7 @@ const Cards = ({
     siz = '100px',
     secondary,
     loading,
+    fitContent,
     isInvalid
 }) => {
     value = value || defaultValue
@@ -86,6 +87,7 @@ const Cards = ({
             justifyContent='center'
             alignItems='center'
             flexWrap='wrap'
+            
         >
             {items.map(({ isDisabled, label, value: itemValue, icon }) => (
                 <Box
@@ -94,7 +96,8 @@ const Cards = ({
                     m='20px'
                     key={itemValue || label}
                     className={loading ? 'bp3-skeleton' : ''}
-                    flex='1 1'
+                    flex={fitContent ? '0 1' : '1 1' }
+                    maxWidth='auto'
                     // bgOnHover={selected ? colors.white : colors.primary}
                 >
                     <FormCard
@@ -122,7 +125,8 @@ export default ({
     secondary = '#ddd',
     defaultValue = null,
     size = '100px',
-    loading = false
+    loading = false,
+    fitContent = false
 }) => {
     const {
         meta: { invalid },
@@ -141,6 +145,7 @@ export default ({
                 defaultValue={defaultValue}
                 loading={loading}
                 siz={size}
+                fitContent={fitContent}
                 {...input}
             />
         </FormGroup>
