@@ -83,7 +83,8 @@ const Components = ({ values, handleSubmit }) => {
                     fitContent={true}
                     primary={PRIMARY}
                     secondary={SECONDARY}
-                    label='choose a cards'
+                    label='choose a provider'
+                    labelInfo='the instance will be created with this provider'
                     items={[
                         {
                             icon: (
@@ -100,6 +101,7 @@ const Components = ({ values, handleSubmit }) => {
                 <Box width='100%'>
                     <Select
                         label='region where to deploy'
+                        labelInfo='region where to deploy'
                         name='region'
                         options={opts}
                     />

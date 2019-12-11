@@ -5,6 +5,7 @@ import { BoxProps } from 'hybrid-components/src/types'
 import { useField } from 'react-final-form'
 import { FormGroup } from '@blueprintjs/core'
 import * as bp from '@blueprintjs/core'
+import { Label } from './support'
 
 const Card: FC<BoxProps & {
     selected?: boolean
@@ -120,6 +121,7 @@ const Cards = ({
 export default ({
     name,
     label = '',
+    labelInfo = '',
     items = [] as CardOptionItem[],
     primary = '#5C7080',
     secondary = '#ddd',
@@ -136,7 +138,7 @@ export default ({
         defaultValue && input.onChange(defaultValue)
     }, [])
     return (
-        <FormGroup label={label}>
+        <FormGroup label={<Label>{label}</Label>} labelInfo={labelInfo}>
             <Cards
                 items={items}
                 primary={primary}

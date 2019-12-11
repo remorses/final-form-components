@@ -9,6 +9,7 @@ import { BoxProps } from 'hybrid-components/src/types'
 
 // // Import FilePond styles
 import 'filepond/dist/filepond.min.css'
+import { Label } from './support'
 // export { default as FilesField } from './FilesField'
 export { default as Button } from './Button'
 export { default as CardOptions } from './CardOptions'
@@ -18,6 +19,7 @@ const Text: FC<BoxProps> = (p) => <Box width='auto' {...p} />
 interface BaseProps {
     name: string
     label?: string
+    labelInfo?: string
 }
 
 const Nothing = ({ children, ...rest }) => <>{children}</>
@@ -70,11 +72,16 @@ const ErrorMessage = ({ meta }) => {
 export const TextField = ({
     name,
     label = '',
+    labelInfo = '',
     ...rest
 }: BaseProps & bp.IInputGroupProps) => {
     const { input, meta } = useField(name)
     return (
-        <bp.FormGroup label={label} helperText={<ErrorMessage meta={meta} />}>
+        <bp.FormGroup
+        label={<Label>{label}</Label>}
+            labelInfo={labelInfo}
+            helperText={<ErrorMessage meta={meta} />}
+        >
             <bp.InputGroup {...input} {...rest} />
         </bp.FormGroup>
     )
@@ -83,6 +90,7 @@ export const TextField = ({
 export const Select = ({
     name,
     label = '',
+    labelInfo = '',
     options = [],
     ...rest
 }: BaseProps & bp.IHTMLSelectProps & any) => {
@@ -91,7 +99,13 @@ export const Select = ({
         input.onChange(options[0].value)
     }, [])
     return (
-        <bp.FormGroup label={label} helperText={<ErrorMessage meta={meta} />}>
+        <bp.FormGroup
+            label={<Label>{label}</Label>}
+            labelInfo={labelInfo}
+
+            helperText={<ErrorMessage meta={meta} />}
+        >
+            <Box height='20px'/>
             <bp.HTMLSelect fill={true} options={options} {...input} {...rest} />
         </bp.FormGroup>
     )
@@ -133,12 +147,13 @@ export const NumberInput = ({
 export const TagsField = ({
     name,
     label = '',
+    labelInfo='',
     ...rest
 }: BaseProps & Omit<bp.ITagInputProps, 'values'>) => {
     const { input, meta } = useField(name)
     useEffect(() => input.onChange([]), [])
     return (
-        <bp.FormGroup label={label} helperText={<ErrorMessage meta={meta} />}>
+        <bp.FormGroup label={<Label>{label}</Label>} labelInfo={labelInfo} helperText={<ErrorMessage meta={meta} />}>
             <bp.TagInput
                 // large
                 fill
@@ -153,6 +168,7 @@ export const TagsField = ({
 export const SliderField = ({
     name,
     label = '',
+    labelInfo = '',
     ...rest
 }: BaseProps & ISliderProps) => {
     const { input, meta } = useField(name)
@@ -160,6 +176,7 @@ export const SliderField = ({
     return (
         <bp.FormGroup
             label={label}
+            labelInfo={labelInfo}
             helperText={
                 <Text color='red' fontSize='13px'>
                     {meta.error || ' '}

@@ -5,6 +5,7 @@ import { Box, Row, Text } from 'hybrid-components/'
 // import { BoxProps } from 'hybrid-components/'
 import { ISliderProps } from '@blueprintjs/core'
 import { FilePond, File, registerPlugin, FilePondProps } from 'react-filepond'
+import { Label } from './support'
 // import 'filepond/dist/filepond.min.css'
 
 interface BaseProps {
@@ -15,17 +16,18 @@ interface BaseProps {
 export const FilesField = ({
     name,
     label = '',
+    labelInfo = '',
     placeholder = '',
     server = undefined,
-    allowMultiple=false,
-    acceptedFileTypes=undefined,
+    allowMultiple = false,
+    acceptedFileTypes = undefined,
     ...rest
 }: { placeholder?: string } & BaseProps & FilePondProps) => {
     const onProcessFile = (err, file) => {
         if (!err) {
             console.log(file)
         }
-        input.onChange([...files.map((x) => x.serverId), ])
+        input.onChange([...files.map((x) => x.serverId)])
     }
     useEffect(() => input.onChange([]), [])
     const [files, setFiles] = useState<File[]>([])
@@ -33,32 +35,32 @@ export const FilesField = ({
     // console.log(files.length && files[0].status)
     return (
         <bp.FormGroup
-            label={label}
+            label={<Label>{label}</Label>}
+            labelInfo={labelInfo}
             helperText={
                 <Text color='red' fontSize='13px'>
-                    {meta.touched && meta.error || ' '}
+                    {(meta.touched && meta.error) || ' '}
                 </Text>
             }
         >
             {/* <bp.Card style={{ margin: '0', padding: '0' }}> */}
-                <FilePond
-                    // className='pondFiles'
-                    files={files || []}
-                    allowMultiple={allowMultiple}
-                    onupdatefiles={(files) => {
-                        // console.log(files)
-                        input.onChange(files.map((x) => x.serverId))
-                        setFiles(files)
-                    }}
-                    labelIdle={
-                        placeholder ||
-                        'Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
-                    }
-                    server={server}
-                    onprocessfile={onProcessFile}
-                    
-                    acceptedFileTypes={acceptedFileTypes}
-                />
+            <FilePond
+                // className='pondFiles'
+                files={files || []}
+                allowMultiple={allowMultiple}
+                onupdatefiles={(files) => {
+                    // console.log(files)
+                    input.onChange(files.map((x) => x.serverId))
+                    setFiles(files)
+                }}
+                labelIdle={
+                    placeholder ||
+                    'Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
+                }
+                server={server}
+                onprocessfile={onProcessFile}
+                acceptedFileTypes={acceptedFileTypes}
+            />
             {/* </bp.Card> */}
         </bp.FormGroup>
     )
