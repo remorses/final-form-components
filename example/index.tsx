@@ -25,6 +25,9 @@ import { Box } from 'hybrid-components'
 
 const opts = [{ value: 'a1' }, { value: 'a2' }, { value: 'a3' }]
 
+const PRIMARY = 'black'
+const SECONDARY = 'lightgray'
+
 const GoogleCloud = ({ width = 120, height = 60 }) => {
     return (
         <svg xmlns='http://www.w3.org/2000/svg' width={width} height={height}>
@@ -77,8 +80,8 @@ const Components = ({ values, handleSubmit }) => {
             <bp.Card style={{ margin: 0 }}>
                 <CardOptions
                     fitContent={false}
-                    primary='#834FAB'
-                    secondary='#F6F0FB'
+                    primary={PRIMARY}
+                    secondary={SECONDARY}
                     label='choose a cards'
                     items={[
                         {
@@ -93,19 +96,21 @@ const Components = ({ values, handleSubmit }) => {
                     ]}
                     name='cards'
                 />
-                {/* <Select
+                <Box width='100%'>
+                    <Select
+                        label='region where to deploy'
+                        name='region'
+                        options={opts}
+                    />
+                </Box>
+                {/* <AtlaskitSelect
                     label='region where to deploy'
                     name='region'
                     options={opts}
                 /> */}
-                <AtlaskitSelect
-                    label='region where to deploy'
-                    name='region'
-                    options={opts}
-                />
                 <CardOptions
-                    primary='#834FAB'
-                    secondary='#F6F0FB'
+                    primary={PRIMARY}
+                    secondary={SECONDARY}
                     fitContent={true}
                     label='choose an instance type'
                     items={[
