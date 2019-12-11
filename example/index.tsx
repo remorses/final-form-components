@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useField } from 'react-final-form'
+import * as bp from '@blueprintjs/core'
 import { render } from 'react-dom'
 import { ArrowRight, Cpu } from 'styled-icons/feather'
 // import antdComponents from '../components/antd'
@@ -72,48 +73,59 @@ const Components = ({ values }) => {
     return (
         <Box fontSize='18px'>
             {/* <TextField label='caio' name='ciao' /> */}
-
-            <CardOptions
-                fitContent={false}
-                primary='#834FAB'
-                secondary='#F6F0FB'
-                label='choose a cards'
-                items={[
-                    {
-                        icon: <img src={require('./aws.svg')} width='80px' />,
-                        label: '',
-                        value: 'aws'
-                    },
-                    { value: 'gcp', icon: <GoogleCloud />, label: '' },
-                    { value: 'azure', icon: <Azure />, label: '' }
-                ]}
-                name='cards'
-            />
-            <Select label='region where to deploy' name='region' options={opts} />
-            <CardOptions
-                primary='#834FAB'
-                secondary='#F6F0FB'
-                fitContent={true}
-                label='choose an instance type'
-                items={[
-                    { value: 'M0', icon: <Cpu width='30px' /> },
-                    { value: 'M1', icon: <Cpu width='30px' /> },
-                    { value: 'M2', icon: <Cpu width='30px' /> },
-                    { value: 'M3', icon: <Cpu width='30px' /> },
-                    { value: 'M4', icon: <Cpu width='30px' /> }
-                ]}
-                name='instances'
-            />
-            {/* <SliderField name='slider' />
+            <bp.Card style={{ margin: 0 }}>
+                <CardOptions
+                    fitContent={false}
+                    primary='#834FAB'
+                    secondary='#F6F0FB'
+                    label='choose a cards'
+                    items={[
+                        {
+                            icon: (
+                                <img src={require('./aws.svg')} width='80px' />
+                            ),
+                            label: '',
+                            value: 'aws'
+                        },
+                        { value: 'gcp', icon: <GoogleCloud />, label: '' },
+                        { value: 'azure', icon: <Azure />, label: '' }
+                    ]}
+                    name='cards'
+                />
+                <Select
+                    label='region where to deploy'
+                    name='region'
+                    options={opts}
+                />
+                <CardOptions
+                    primary='#834FAB'
+                    secondary='#F6F0FB'
+                    fitContent={true}
+                    label='choose an instance type'
+                    items={[
+                        { value: 'M0', icon: <Cpu width='30px' /> },
+                        { value: 'M1', icon: <Cpu width='30px' /> },
+                        { value: 'M2', icon: <Cpu width='30px' /> },
+                        { value: 'M3', icon: <Cpu width='30px' /> },
+                        { value: 'M4', icon: <Cpu width='30px' /> }
+                    ]}
+                    name='instances'
+                />
+                {/* <SliderField name='slider' />
             <Switch label='caio' name='dfòkgjdklfg' />
             <TagsField label='ciaone' name='xcdf' />
             <NumberInput label='caio' name='dsfdsfdsf99' />
             <AddableListField name='addable' />
             <FilesField name='files' /> */}
+            </bp.Card>
+            <Box my='20px'>
+                The docker stack will be deployed in the instance selectes
+            </Box>
             <Button
                 icon={<ArrowRight strokeWidth='1px' width='40px' />}
                 title='bottone'
             />
+
             {/* <TagsField /> */}
             <pre>{JSON.stringify(values, null, 4)}</pre>
         </Box>
@@ -134,56 +146,6 @@ const App = () => {
         </Box>
     )
 }
-
-const _App = () => (
-    <Box p='50px'>
-        <Card elevation={3}>
-            <Form
-                onSubmit={(x) => alert(JSON.stringify(x, null, 4))}
-                render={({ values }) => {
-                    return (
-                        <>
-                            <TextField label='caio' name='ciao' />
-                            <Select
-                                label='caio'
-                                name='sdfciao'
-                                options={opts}
-                            />
-                            <CardOptions
-                                label='choose a cards'
-                                items={[
-                                    {
-                                        icon: <ArrowRight width='40px' />,
-                                        value: 'a real word'
-                                    },
-                                    { value: 'something' }
-                                ]}
-                                name='cards'
-                            />
-                            <SliderField name='slider' />
-                            <Switch label='caio' name='dfòkgjdklfg' />
-                            <TagsField label='ciaone' name='xcdf' />
-                            <NumberInput label='caio' name='dsfdsfdsf99' />
-                            <AddableListField name='addable' />
-                            <FilesField name='files' />
-                            <Button
-                                icon={
-                                    <ArrowRight
-                                        strokeWidth='1px'
-                                        width='40px'
-                                    />
-                                }
-                                title='bottone'
-                            />
-                            {/* <TagsField /> */}
-                            <pre>{JSON.stringify(values, null, 4)}</pre>
-                        </>
-                    )
-                }}
-            />
-        </Card>
-    </Box>
-)
 
 render(<App />, document.getElementById('root'))
 // @ts-ignore
