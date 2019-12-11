@@ -79,7 +79,8 @@ const Components = ({ values, handleSubmit }) => {
             {/* <TextField label='caio' name='ciao' /> */}
             <bp.Card style={{ margin: 0 }}>
                 <CardOptions
-                    fitContent={false}
+                    // fitContent={false}
+                    fitContent={true}
                     primary={PRIMARY}
                     secondary={SECONDARY}
                     label='choose a cards'
@@ -155,15 +156,17 @@ const Components = ({ values, handleSubmit }) => {
 
 const App = () => {
     return (
-        <Box p='50px'>
-            <Card elevation={3}>
-                <Form
-                    onSubmit={(x) => alert(JSON.stringify(x, null, 4))}
-                    render={(data) => {
-                        return <Components {...data} />
-                    }}
-                />
-            </Card>
+        <Box alignItems='center' py='60px'>
+            <Box maxWidth='800px'>
+                <Card elevation={4}>
+                    <Form
+                        onSubmit={(x) => alert(JSON.stringify(x, null, 4))}
+                        render={(data) => {
+                            return <Components {...data} />
+                        }}
+                    />
+                </Card>
+            </Box>
         </Box>
     )
 }
