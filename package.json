@@ -24,6 +24,7 @@
     "typescript": "^3.5.1"
   },
   "peerDependencies": {
+    "@atlaskit/select": "^11.0.2",
     "@blueprintjs/core": "^3.22.2",
     "filepond": "^4.8.0",
     "final-form": "^4.18.6",

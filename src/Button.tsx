@@ -95,7 +95,7 @@ const Button: FC<Omit<ButtonHTMLAttributes<any>, 'color'> & {
     )
 }
 
-export const ButtonWithIcon: FC<BoxProps & { icon?: any; title: any }> = ({
+export const ButtonWithIcon: FC<BoxProps & { icon?: any; title: any } & ButtonHTMLAttributes<any>> = ({
     icon,
     title,
     ...rest

@@ -17,6 +17,7 @@ import {
     AddableListField
 } from '../src/'
 import FilesField from '../src/FilesField'
+import AtlaskitSelect from '../src/AtlaskitSelect'
 import './reset.css'
 import { Form } from 'react-final-form'
 import { Card } from '@blueprintjs/core'
@@ -69,7 +70,7 @@ const Azure = ({ width = 120, height = 60 }) => {
     )
 }
 
-const Components = ({ values }) => {
+const Components = ({ values, handleSubmit }) => {
     return (
         <Box fontSize='18px'>
             {/* <TextField label='caio' name='ciao' /> */}
@@ -92,7 +93,12 @@ const Components = ({ values }) => {
                     ]}
                     name='cards'
                 />
-                <Select
+                {/* <Select
+                    label='region where to deploy'
+                    name='region'
+                    options={opts}
+                /> */}
+                <AtlaskitSelect
                     label='region where to deploy'
                     name='region'
                     options={opts}
@@ -122,6 +128,8 @@ const Components = ({ values }) => {
                 The docker stack will be deployed in the instance selectes
             </Box>
             <Button
+                type='submit'
+                onClick={handleSubmit}
                 icon={<ArrowRight strokeWidth='1px' width='40px' />}
                 title='bottone'
             />
@@ -138,8 +146,8 @@ const App = () => {
             <Card elevation={3}>
                 <Form
                     onSubmit={(x) => alert(JSON.stringify(x, null, 4))}
-                    render={({ values }) => {
-                        return <Components values={values} />
+                    render={(data) => {
+                        return <Components {...data} />
                     }}
                 />
             </Card>
