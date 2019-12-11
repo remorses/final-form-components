@@ -101,7 +101,7 @@ export const ButtonWithIcon: FC<BoxProps & { icon?: any; title: any } & ButtonHT
     ...rest
 }) => {
     return (
-        <Box flex='1 1' justifyContent='center' alignItems='center' {...rest}>
+        <Box width='auto' justifyContent='center' alignItems='center'>
             <Button height='40px' justifyContent='center' {...rest}>
                 <Row alignItems='center' justifyContent='center'>
                     {icon}
