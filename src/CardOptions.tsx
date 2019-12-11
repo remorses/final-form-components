@@ -13,14 +13,17 @@ const Card: FC<BoxProps & {
     siz?: string
     secondary?: string
 }> = styled(Box)`
-    border-radius: 4px;
-    border-color: ${(p: any) => (p.selected ? p.primary : p.secondary)};
+    border-radius: 6px;
+    &:hover {
+        border-color: ${(p: any) => p.selected ? p.primary : p.secondary};
+    }
     border-width: 2px;
     border-style: solid;
+    border-color: ${(p: any) => p.selected ? p.primary : 'transparent'};
     min-width: ${(p: any) => p.siz};
     min-height: ${(p: any) => p.siz};
     background-color: white;
-    color: ${(p: any) => (p.selected ? p['primary'] : p['secondary'])};
+    color: ${(p: any) => (true ? p['primary'] : p['secondary'])};
     font-weight: normal;
     font-size: 18px;
     text-align: center;
@@ -43,11 +46,7 @@ export const FormCard = ({
 }) => {
     const nothing = () => null
     return (
-        <bp.Card
-            onClick={!isDisabled ? onClick : nothing}
-            interactive
-            style={{ padding: 0 }}
-        >
+        <div  onClick={!isDisabled ? onClick : nothing} style={{ padding: 0 }}>
             <Card
                 {...rest}
                 selected={selected}
@@ -57,7 +56,7 @@ export const FormCard = ({
                 {title}
                 {icon}
             </Card>
-        </bp.Card>
+        </div>
     )
 }
 
@@ -95,12 +94,13 @@ const Cards = ({
                     m='20px'
                     key={itemValue || label}
                     className={loading ? 'bp3-skeleton' : ''}
+                    flex='1 1'
                     // bgOnHover={selected ? colors.white : colors.primary}
                 >
                     <FormCard
                         primary={primary}
                         secondary={secondary}
-                        title={label || itemValue}
+                        title={label === undefined ? itemValue : label}
                         icon={icon}
                         onClick={() => onChange(itemValue)}
                         selected={value === itemValue}

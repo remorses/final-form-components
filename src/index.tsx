@@ -8,8 +8,8 @@ import { BoxProps } from 'hybrid-components/src/types'
 // import { FilePond, File, registerPlugin, FilePondProps } from 'react-filepond'
 
 // // Import FilePond styles
-// import 'filepond/dist/filepond.min.css'
-export { default as FilesField } from './FilesField'
+import 'filepond/dist/filepond.min.css'
+// export { default as FilesField } from './FilesField'
 export { default as Button } from './Button'
 export { default as CardOptions } from './CardOptions'
 
