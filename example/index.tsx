@@ -71,8 +71,8 @@ const Azure = ({ width = 120, height = 60 }) => {
 const Components = ({ values }) => {
     return (
         <Box fontSize='18px'>
-            <TextField label='caio' name='ciao' />
-            <Select label='caio' name='sdfciao' options={opts} />
+            {/* <TextField label='caio' name='ciao' /> */}
+
             <CardOptions
                 fitContent={false}
                 primary='#834FAB'
@@ -89,6 +89,7 @@ const Components = ({ values }) => {
                 ]}
                 name='cards'
             />
+            <Select label='region where to deploy' name='region' options={opts} />
             <CardOptions
                 primary='#834FAB'
                 secondary='#F6F0FB'
@@ -99,18 +100,16 @@ const Components = ({ values }) => {
                     { value: 'M1', icon: <Cpu width='30px' /> },
                     { value: 'M2', icon: <Cpu width='30px' /> },
                     { value: 'M3', icon: <Cpu width='30px' /> },
-                    { value: 'M4', icon: <Cpu width='30px' /> },
-                    
-                    
+                    { value: 'M4', icon: <Cpu width='30px' /> }
                 ]}
                 name='instances'
             />
-            <SliderField name='slider' />
+            {/* <SliderField name='slider' />
             <Switch label='caio' name='dfòkgjdklfg' />
             <TagsField label='ciaone' name='xcdf' />
             <NumberInput label='caio' name='dsfdsfdsf99' />
             <AddableListField name='addable' />
-            <FilesField name='files' />
+            <FilesField name='files' /> */}
             <Button
                 icon={<ArrowRight strokeWidth='1px' width='40px' />}
                 title='bottone'
