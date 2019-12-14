@@ -91,10 +91,21 @@ const Components = ({ values, handleSubmit }) => {
                                 <img src={require('./aws.svg')} width='80px' />
                             ),
                             label: '',
+
                             value: 'aws'
                         },
-                        { value: 'gcp', icon: <GoogleCloud />, label: '' },
-                        { value: 'azure', icon: <Azure />, label: '' }
+                        {
+                            value: 'gcp',
+                            icon: <GoogleCloud />,
+                            label: '',
+                            disabled: true
+                        },
+                        {
+                            value: 'azure',
+                            icon: <Azure />,
+                            label: '',
+                            disabled: true
+                        }
                     ]}
                     name='cards'
                 />
@@ -118,19 +129,17 @@ const Components = ({ values, handleSubmit }) => {
                     label='choose an instance type'
                     items={[
                         { value: 'M0', icon: <Cpu width='30px' /> },
-                        { value: 'M1', icon: <Cpu width='30px' /> },
+                        {
+                            value: 'M1',
+                            icon: <Cpu width='30px' />,
+                            disabled: true
+                        },
                         { value: 'M2', icon: <Cpu width='30px' /> },
                         { value: 'M3', icon: <Cpu width='30px' /> },
                         { value: 'M4', icon: <Cpu width='30px' /> }
                     ]}
                     name='instances'
                 />
-                {/* <SliderField name='slider' />
-            <Switch label='caio' name='dfòkgjdklfg' />
-            <TagsField label='ciaone' name='xcdf' />
-            <NumberInput label='caio' name='dsfdsfdsf99' />
-            <AddableListField name='addable' />
-            <FilesField name='files' /> */}
             </bp.Card>
             <Box my='20px'>
                 The docker stack will be deployed in the instance selectes
@@ -152,7 +161,13 @@ const Components = ({ values, handleSubmit }) => {
             />
 
             {/* <TagsField /> */}
-            {/* <pre>{JSON.stringify(values, null, 4)}</pre> */}
+            <pre>{JSON.stringify(values, null, 4)}</pre>
+            <SliderField name='slider' />
+            <Switch label='caio' name='dfòkgjdklfg' />
+            <TagsField label='ciaone' name='xcdf' />
+            <NumberInput label='caio' name='dsfdsfdsf99' />
+            <AddableListField name='addable' />
+            <FilesField name='files' />
         </Box>
     )
 }

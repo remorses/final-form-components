@@ -11,6 +11,7 @@ import { Label } from './support'
 interface BaseProps {
     name: string
     label?: string
+    labelInfo?: string
 }
 
 export const FilesField = ({
@@ -23,12 +24,6 @@ export const FilesField = ({
     acceptedFileTypes = undefined,
     ...rest
 }: { placeholder?: string } & BaseProps & FilePondProps) => {
-    const onProcessFile = (err, file) => {
-        if (!err) {
-            console.log(file)
-        }
-        input.onChange([...files.map((x) => x.serverId)])
-    }
     useEffect(() => input.onChange([]), [])
     const [files, setFiles] = useState<File[]>([])
     const { input, meta } = useField(name)
@@ -48,17 +43,15 @@ export const FilesField = ({
                 // className='pondFiles'
                 files={files || []}
                 allowMultiple={allowMultiple}
-                onupdatefiles={(files) => {
-                    // console.log(files)
-                    input.onChange(files.map((x) => x.serverId))
-                    setFiles(files)
+                onupdatefiles={setFiles}
+                onprocessfile={(err, file) => {
+                    input.onChange([...input.value, file.serverId])
                 }}
                 labelIdle={
                     placeholder ||
                     'Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
                 }
                 server={server}
-                onprocessfile={onProcessFile}
                 acceptedFileTypes={acceptedFileTypes}
             />
             {/* </bp.Card> */}

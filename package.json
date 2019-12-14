@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@types/react": "^16.9.16",
+    "@types/react-filepond": "^5.0.5",
     "hybrid-components": "3.0.4"
   }
 }

@@ -16,7 +16,7 @@ const Card: FC<BoxProps & {
 }> = styled(Box)`
     border-radius: 6px;
     &:hover {
-        border-color: ${(p: any) => (p.selected ? p.primary : p.secondary)};
+        border-color: ${(p: any) => ((p.selected ) ? p.primary : p.isDisabled ? 'transparent' : p.secondary)};
     }
     border-width: 2px;
     border-style: solid;
@@ -24,7 +24,8 @@ const Card: FC<BoxProps & {
     min-width: ${(p: any) => p.siz};
     min-height: ${(p: any) => p.siz};
     background-color: white;
-    color: ${(p: any) => (true ? p['primary'] : p['secondary'])};
+    color: ${(p: any) => p.primary};
+    opacity: ${(p: any) =>(p.isDisabled ? '.5' : '1')};
     font-weight: normal;
     font-size: 18px;
     text-align: center;
@@ -39,6 +40,7 @@ export const FormCard = ({
     selected = false,
     icon = '',
     title,
+    description,
     siz,
     onClick,
     isInvalid = false,
@@ -55,6 +57,7 @@ export const FormCard = ({
                 siz={siz}
             >
                 {title}
+                <Box fontWeight='lighter'>{description}</Box>
                 {icon}
             </Card>
         </div>
@@ -64,6 +67,8 @@ export const FormCard = ({
 export interface CardOptionItem {
     isDisabled?: boolean
     label?: string
+    labelInfo?: string
+    disabled?: boolean
     value: any
     icon?: any
 }
@@ -88,16 +93,15 @@ const Cards = ({
             justifyContent='center'
             alignItems='center'
             flexWrap='wrap'
-            
         >
-            {items.map(({ isDisabled, label, value: itemValue, icon }) => (
+            {items.map(({ disabled, label, labelInfo, value: itemValue, icon }) => (
                 <Box
                     // display='block'
                     width='auto'
                     m='20px'
                     key={itemValue || label}
                     className={loading ? 'bp3-skeleton' : ''}
-                    flex={fitContent ? '0 1' : '1 1' }
+                    flex={fitContent ? '0 1' : '1 1'}
                     maxWidth='auto'
                     // bgOnHover={selected ? colors.white : colors.primary}
                 >
@@ -105,11 +109,12 @@ const Cards = ({
                         primary={primary}
                         secondary={secondary}
                         title={label === undefined ? itemValue : label}
+                        description={labelInfo || ''}
                         icon={icon}
                         onClick={() => onChange(itemValue)}
                         selected={value === itemValue}
                         isInvalid={isInvalid}
-                        isDisabled={isDisabled}
+                        isDisabled={disabled}
                         siz={siz}
                     />
                 </Box>
