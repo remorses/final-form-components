@@ -15,8 +15,7 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - run: npm i -g install-peers-cli
-      - run: install-peers -f && tsc && npm publish
+      - run: yarn && yarn install-peers -f && tsc && npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
       # - name: Docker Login
