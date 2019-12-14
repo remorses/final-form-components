@@ -15,6 +15,7 @@ const Card: FC<BoxProps & {
     secondary?: string
 }> = styled(Box)`
     border-radius: 6px;
+    /* padding: 10px; */
     &:hover {
         border-color: ${(p: any) => ((p.selected ) ? p.primary : p.isDisabled ? 'transparent' : p.secondary)};
     }
@@ -51,13 +52,15 @@ export const FormCard = ({
     return (
         <div onClick={!isDisabled ? onClick : nothing} style={{ padding: 0 }}>
             <Card
+            width='auto'
                 {...rest}
                 selected={selected}
                 isDisabled={isDisabled}
                 siz={siz}
+                m='10px'
             >
                 {title}
-                <Box fontWeight='lighter'>{description}</Box>
+                <Box width='auto' fontSize='12px' opacity={.4}>{description}</Box>
                 {icon}
             </Card>
         </div>
@@ -67,7 +70,7 @@ export const FormCard = ({
 export interface CardOptionItem {
     isDisabled?: boolean
     label?: string
-    labelInfo?: string
+    labelInfo?: any
     disabled?: boolean
     value: any
     icon?: any
@@ -98,7 +101,6 @@ const Cards = ({
                 <Box
                     // display='block'
                     width='auto'
-                    m='20px'
                     key={itemValue || label}
                     className={loading ? 'bp3-skeleton' : ''}
                     flex={fitContent ? '0 1' : '1 1'}

@@ -88,7 +88,12 @@ const Components = ({ values, handleSubmit }) => {
                     items={[
                         {
                             icon: (
-                                <img src={require('./aws.svg')} width='80px' />
+                                <Box width='140px' alignItems='center'>
+                                    <img
+                                        src={require('./aws.svg')}
+                                        width='80px'
+                                    />
+                                </Box>
                             ),
                             label: '',
 
@@ -127,17 +132,17 @@ const Components = ({ values, handleSubmit }) => {
                     secondary={SECONDARY}
                     fitContent={true}
                     label='choose an instance type'
-                    items={[
-                        { value: 'M0', icon: <Cpu width='30px' /> },
-                        {
-                            value: 'M1',
-                            icon: <Cpu width='30px' />,
-                            disabled: true
-                        },
-                        { value: 'M2', icon: <Cpu width='30px' /> },
-                        { value: 'M3', icon: <Cpu width='30px' /> },
-                        { value: 'M4', icon: <Cpu width='30px' /> }
-                    ]}
+                    items={['M1', 'M2', 'M3', 'M4'].map((value) => ({
+                        value,
+                        // icon: <Cpu width='30px' />,
+                        labelInfo: (
+                            <Box width='auto'>
+                                {['vCPU: 1', 'RAM: 200 Mb'].map((x) => (
+                                    <Box width='auto' fontSize='12px'>{x}</Box>
+                                ))}
+                            </Box>
+                        )
+                    }))}
                     name='instances'
                 />
             </bp.Card>
