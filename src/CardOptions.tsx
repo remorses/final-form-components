@@ -1,7 +1,7 @@
 import React, { FC, useContext, useEffect } from 'react'
 import styled, { ThemeContext } from 'styled-components'
 import { Box, Row } from 'hybrid-components'
-import { BoxProps } from 'hybrid-components/src/types'
+import { BoxProps } from 'hybrid-components/'
 import { useField } from 'react-final-form'
 import { FormGroup } from '@blueprintjs/core'
 import * as bp from '@blueprintjs/core'
