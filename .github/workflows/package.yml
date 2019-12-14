@@ -15,6 +15,9 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
+      - run: npm i -g install-peers-cli
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
       - run: yarn install-peers -f && tsc && npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
