@@ -45,7 +45,15 @@ export const FilesField = ({
                 allowMultiple={allowMultiple}
                 onupdatefiles={setFiles}
                 onprocessfile={(err, file) => {
-                    input.onChange([...input.value, file.serverId])
+                    input.onChange([
+                        ...input.value,
+                        {
+                            url: file.serverId,
+                            name: file.filename,
+                            extension: file.fileExtension,
+                            size: file.fileSize
+                        }
+                    ])
                 }}
                 labelIdle={
                     placeholder ||
